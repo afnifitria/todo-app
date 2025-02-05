@@ -22,11 +22,15 @@ class TaskController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|max:100',
+            'description' => 'required|max:100',
+            'priority' => 'required|in:low,medium,high',
             'list_id' => 'required'
         ]);
 
         Task::create([
             'name' => $request->name,
+            'description' => $request->description,
+            'priority' => $request->priority,
             'list_id' => $request->list_id
         ]);
 

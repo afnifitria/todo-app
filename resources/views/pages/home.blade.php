@@ -5,7 +5,7 @@
         @if ($lists->count() == 0)
             <div class="d-flex flex-column align-items-center">
                 <p class="fw-bold text-center">Belum ada tugas yang ditambahkan</p>
-                <button type="button" class="btn btn-sm d-flex align-items-center gap-2 btn-outline-primary"
+                <button type="button" class="btn btn-sm d-flex align-items-center gap-2 btn-outline-success"
                     style="width: fit-content;">
                     <i class="bi bi-plus-square fs-3"></i> Tambah
                 </button>
@@ -60,7 +60,8 @@
                                             <form action="{{ route('tasks.complete', $task->id) }}" method="POST">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-primary w-100">
+                                                <!--mengganti warna-->
+                                                <button type="submit" class="btn btn-sm btn-success w-100">
                                                     <span class="d-flex align-items-center justify-content-center">
                                                         <i class="bi bi-check fs-5"></i>
                                                         Selesai
@@ -73,7 +74,8 @@
                                 </div>
                             @endif
                         @endforeach
-                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                        <!--mengganti warna pada kolom tambah-->
+                        <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal"
                             data-bs-target="#addTaskModal" data-list="{{ $list->id }}">
                             <span class="d-flex align-items-center justify-content-center">
                                 <i class="bi bi-plus fs-5"></i>
@@ -86,7 +88,7 @@
                     </div>
                 </div>
             @endforeach
-            <button type="button" class="btn btn-outline-primary flex-shrink-0" style="width: 18rem; height: fit-content;"
+            <button type="button" class="btn btn-outline-success flex-shrink-0" style="width: 18rem; height: fit-content;"
                 data-bs-toggle="modal" data-bs-target="#addListModal">
                 <span class="d-flex align-items-center justify-content-center">
                     <i class="bi bi-plus fs-5"></i>
