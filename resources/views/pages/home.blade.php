@@ -31,10 +31,10 @@
                                     <div class="card-header">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div class="d-flex flex-column justify-content-center gap-2">
-                                                <p
+                                                <a href="{{ route('tasks.show', $task->id)}}"
                                                     class="fw-bold lh-1 m-0 {{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                                                     {{ $task->name }}
-                                                </p>
+                                                </a>
                                                 <span class="badge text-bg-{{ $task->priorityClass }} badge-pill"
                                                     style="width: fit-content">
                                                     {{ $task->priority }}
