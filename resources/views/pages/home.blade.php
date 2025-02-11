@@ -4,11 +4,12 @@
 <div id="content" class="overflow-y-hidden overflow-x-hidden bg-light p-5">
     <div class="d-flex align-items-center justify-content-center flex-column">
         <form action="{{ route('home.search') }}" method="GET" 
-              class="d-flex align-items-center gap-2 p-3 bg-success rounded shadow">
-             <input type="text" name="search" placeholder="Cari..." 
-                class="form-control border-white" style="width: 300px;">
-             <button type="submit" class="btn btn-light">Cari</button>
-        </form>
+      class="d-flex align-items-center gap-2 p-3 bg-white rounded shadow">
+    <input type="text" name="search" placeholder="Cari..." 
+           class="form-control border-pink text-pink" style="width: 300px; border-color: #ff69b4; color: #ff69b4;">
+    <button type="submit" class="btn text-white" style="background-color: #ff69b4;">Cari</button>
+</form>
+
          <!-- Tampilkan hasil pencarian jika ada -->
         @if(isset($results))
             <h3 class="text-success mt-3">Hasil Pencarian:</h3>
@@ -38,7 +39,7 @@
         @endif
         <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
             @foreach ($lists as $list)
-                <div class="card flex-shrink-0" style="width: 18rem; max-height: 80vh;">
+                <div class="card flex-shrink-0 bg-danger-subtle" style="width: 18rem; max-height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <h4 class="card-title">{{ $list->name }}</h4>
                         <!--Kode ini digunakan untuk membuat tombol "Hapus" dengan ikon tong sampah, yang ketika diklik, akan mengirim permintaan DELETE ke server Laravel untuk menghapus item dengan ID tertentu-->
@@ -91,7 +92,7 @@
                                                 @csrf
                                                 @method('PATCH')
                                                 <!--mengganti warna-->
-                                                <button type="submit" class="btn btn-sm btn-success w-100">
+                                                <button type="submit" class="btn btn-sm bg-danger w-100">
                                                     <span class="d-flex align-items-center justify-content-center">
                                                         <i class="bi bi-check fs-5"></i>
                                                         Selesai
@@ -105,7 +106,7 @@
                             @endif
                         @endforeach
                         <!--mengganti warna pada kolom tambah-->
-                        <button type="button" class="btn btn-sm btn-outline-success" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-sm bg-danger text-danger-subtle" data-bs-toggle="modal"
                             data-bs-target="#addTaskModal" data-list="{{ $list->id }}">
                             <!--Kode ini digunakan untuk menampilkan tombol atau label dengan ikon + dan teks "Tambah" yang tertata rapi dalam satu baris, sering digunakan untuk tombol tambah dalam UI aplikasi.-->
                             <span class="d-flex align-items-center justify-content-center">
@@ -121,7 +122,7 @@
                 </div>
             @endforeach
             <!--Kode ini membuat tombol "Tambah", yang berfungsi untuk membuka modal Bootstrap dengan ID addListModal, menggunakan ikon plus, serta desain yang rapi dan responsif-->
-            <button type="button" class="btn btn-outline-success flex-shrink-0" style="width: 18rem; height: fit-content;"
+            <button type="button" class="btn bg-danger-subtle text-danger flex-shrink-0" style="width: 18rem; height: fit-content;"
                 data-bs-toggle="modal" data-bs-target="#addListModal">
                 <span class="d-flex align-items-center justify-content-center">
                     <i class="bi bi-plus fs-5"></i>

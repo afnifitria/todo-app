@@ -67,5 +67,25 @@ class TaskController extends Controller
     $task = Task::findOrFail($id);
     return view('tasks.edit', compact('task'));
 }
+public function update(Request $request, $id)
+{
+    // Mencari task berdasarkan ID
+    $task = Task::findOrFail($id);
 
+    // Validasi data yang dikirimkan
+    $validatedData = $request->validate([
+        'name' => 'required|max:255',  // Gantilah sesuai dengan kolom yang ada
+        'description' => 'nullable|max:500',
+    ]);
+
+    // Update data task
+    $task->name = $validatedData['name'];
+    $task->description = $validatedData['description'];
+    $task->save();  // Menyimpan perubahan ke database
+
+    // Redirect ke halaman yang sesuai, bisa juga menambahkan flash message atau status
+    return redirect()->route('tasks.index')->with('success', 'Task updated successfully!');
+
+
+}
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Item; // Model untuk data yang ingin dicari
 use Illuminate\Http\Request;
+use App\Models\Product;
+
 
 class HomeController extends Controller
 {
