@@ -4,11 +4,11 @@
 <div id="content" class="overflow-y-hidden overflow-x-hidden bg-light p-5">
     <div class="d-flex align-items-center justify-content-center flex-column">
         <form action="{{ route('home.search') }}" method="GET" 
-      class="d-flex align-items-center gap-2 p-3 bg-white rounded shadow">
-    <input type="text" name="search" placeholder="Cari..." 
-           class="form-control border-pink text-pink" style="width: 300px; border-color: #ff69b4; color: #ff69b4;">
-    <button type="submit" class="btn text-white" style="background-color: #ff69b4;">Cari</button>
-</form>
+            class="d-flex align-items-center gap-2 p-3 bg-white rounded shadow">
+            <input type="text" name="search" placeholder="Cari..." 
+            class="form-control border-pink text-pink" style="width: 300px; border-color: #ff69b4; color: #ff69b4;">
+            <button type="submit" class="btn text-white" style="background-color: #ff69b4;">Cari</button>
+        </form>
 
          <!-- Tampilkan hasil pencarian jika ada -->
         @if(isset($results))
