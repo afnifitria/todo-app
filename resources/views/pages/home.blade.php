@@ -2,27 +2,39 @@
 
 @section('content')
     <div id="content" class="overflow-y-hidden overflow-x-hidden">
+        <!-- Mengecek apakah jumlah item dalam variabel $lists adalah 0 -->
         @if ($lists->count() == 0)
+            <!-- Container fleksibel dengan tata letak kolom dan elemen di tengah -->
             <div class="d-flex flex-column align-items-center">
+                <!-- Pesan yang ditampilkan jika tidak ada tugas -->
                 <p class="text-center fst-italic">Belum ada tugas yang ditambahkan</p>
+
+                <!-- Tombol untuk menambahkan tugas baru -->
                 <button type="button" class="btn d-flex align-items-center gap-2" style="width: fit-content;"
                     data-bs-toggle="modal" data-bs-target="#addListModal">
+                    <!-- Ikon Bootstrap untuk menampilkan ikon tambah -->
                     <i class="bi bi-plus-square fs-1"></i>
                 </button>
             </div>
         @endif
 
 
-
+        <!-- Membuat baris dengan margin vertikal (my-3) -->
         <div class="row my-3">
+            <!-- Membuat kolom dengan lebar 6 dan posisi di tengah (mx-auto) -->
             <div class="col-6 mx-auto">
+                <!-- Form pencarian yang mengarah ke route 'home' dengan metode GET -->
                 <form action="{{ route('home') }}" method="GET" class="d-flex gap-2">
+                    <!-- Input field untuk mengetikkan kata kunci pencarian -->
                     <input type="text" class="form-control" name="query" placeholder="Cari tugas atau list..."
                         value="{{ request()->query('query') }}">
+
+                    <!-- Tombol submit untuk menjalankan pencarian -->
                     <button type="submit" class="btn bg-danger-subtle">Cari</button>
                 </form>
             </div>
         </div>
+
 
         <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
             @foreach ($lists as $list)
@@ -102,8 +114,8 @@
             @endforeach
 
             @if ($lists->count() !== 0)
-                <button type="button" class="btn bg-danger-subtle flex-shrink-0"
-                    style="width: 18rem; height: fit-content;" data-bs-toggle="modal" data-bs-target="#addListModal">
+                <button type="button" class="btn bg-danger-subtle flex-shrink-0" style="width: 18rem; height: fit-content;"
+                    data-bs-toggle="modal" data-bs-target="#addListModal">
                     <span class="d-flex align-items-center justify-content-center">
                         <i class="bi bi-plus fs-5"></i>
                         Tambah
