@@ -39,65 +39,92 @@
         <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
             @foreach ($lists as $list)
                 <div class="card flex-shrink-0" style="width: 18rem; max-height: 80vh;">
+                    <!-- Bagian header dari kartu dengan tata letak fleksibel -->
                     <div class="card-header d-flex align-items-center justify-content-between">
+                        <!-- Judul kartu yang menampilkan nama list -->
                         <h4 class="card-title">{{ $list->name }}</h4>
+
+                        <!-- Form untuk menghapus list -->
                         <form action="{{ route('lists.destroy', $list->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
+                            @csrf <!-- Token keamanan Laravel untuk mencegah serangan CSRF -->
+                            @method('DELETE') <!-- Menggunakan metode DELETE untuk menghapus data -->
+
+                            <!-- Tombol untuk menghapus list -->
                             <button type="submit" class="btn btn-sm p-0">
+                                <!-- Ikon tempat sampah dengan warna merah -->
                                 <i class="bi bi-trash fs-5 text-danger"></i>
                             </button>
                         </form>
                     </div>
                     <div class="card-body d-flex flex-column gap-2 overflow-x-hidden">
+                        <!-- Melakukan perulangan untuk setiap tugas (task) dalam daftar (list) -->
                         @foreach ($list->tasks as $task)
+                            <!-- Membuat kartu untuk setiap tugas, dengan warna berbeda jika tugas telah selesai -->
                             <div class="card {{ $task->is_completed ? 'bg-secondary-subtle' : '' }}">
+
+                                <!-- Bagian header dari kartu -->
                                 <div class="card-header">
                                     <div class="d-flex align-items-center justify-content-between">
+
+                                        <!-- Bagian kiri: Nama tugas dan indikator prioritas -->
                                         <div class="d-flex justify-content-center gap-2">
+                                            <!-- Menampilkan indikator prioritas jika tugas berprioritas tinggi dan belum selesai -->
                                             @if ($task->priority == 'high' && !$task->is_completed)
                                                 <div class="spinner-grow spinner-grow-sm text-{{ $task->priorityClass }}"
                                                     role="status">
                                                     <span class="visually-hidden">Loading...</span>
                                                 </div>
                                             @endif
+
+                                            <!-- Nama tugas sebagai link untuk melihat detail -->
                                             <a href="{{ route('tasks.show', $task->id) }}"
-                                                class="fw-bold lh-1 m-0 text-decoration-none text-{{ $task->priorityClass }} {{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
+                                                class="fw-bold lh-1 m-0 text-decoration-none text-{{ $task->priorityClass }} 
+                    {{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                                                 {{ $task->name }}
                                             </a>
                                         </div>
+
+                                        <!-- Form untuk menghapus tugas -->
                                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST"
                                             style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
+                                            @csrf <!-- Laravel CSRF Protection -->
+                                            @method('DELETE') <!-- Menggunakan metode DELETE untuk menghapus tugas -->
                                             <button type="submit" class="btn btn-sm p-0">
-                                                <i class="bi bi-x-circle text-danger fs-5"></i>
+                                                <i class="bi bi-x-circle text-danger fs-5"></i> <!-- Ikon hapus tugas -->
                                             </button>
                                         </form>
+
                                     </div>
                                 </div>
+
+                                <!-- Bagian body kartu -->
                                 <div class="card-body">
                                     <p
                                         class="card-text text-truncate {{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
-                                        {{ $task->description }}
+                                        {{ $task->description }} <!-- Deskripsi tugas -->
                                     </p>
                                 </div>
+
+                                <!-- Jika tugas belum selesai, tampilkan tombol "Selesai" -->
                                 @if (!$task->is_completed)
                                     <div class="card-footer">
                                         <form action="{{ route('tasks.complete', $task->id) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
+                                            <!-- Menggunakan metode PATCH untuk menandai tugas sebagai selesai -->
                                             <button type="submit" class="btn btn-sm bg-danger-subtle w-100">
                                                 <span class="d-flex align-items-center justify-content-center">
-                                                    <i class="bi bi-check fs-5"></i>
+                                                    <i class="bi bi-check fs-5"></i> <!-- Ikon checklist -->
                                                     Selesai
                                                 </span>
                                             </button>
                                         </form>
                                     </div>
                                 @endif
+
                             </div>
                         @endforeach
+
                         <button type="button" class="btn btn-sm bg-danger-subtle" data-bs-toggle="modal"
                             data-bs-target="#addTaskModal" data-list="{{ $list->id }}">
                             <span class="d-flex align-items-center justify-content-center">
