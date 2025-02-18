@@ -3,6 +3,7 @@
         <!-- Nama Aplikasi -->
         <a class="navbar-brand fw-bolder text-dark" href="#">{{ config('app.name') }}</a>
 
+
         <!-- Profil Pengguna -->
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
@@ -20,8 +21,8 @@
         /* Menambahkan animasi dan efek hover pada gambar avatar */
         .avatar-image {
             transition: transform 0.3s ease, opacity 0.3s ease-in-out;
-            width: 60px;  /* Ukuran gambar lebih besar */
-            height: 60px; /* Ukuran gambar lebih besar */
+            width: 50px;  /* Ukuran gambar lebih besar */
+            height: 50px; /* Ukuran gambar lebih besar */
         }
 
         /* Efek Hover untuk memperbesar gambar */
