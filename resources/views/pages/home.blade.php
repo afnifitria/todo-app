@@ -125,26 +125,34 @@
                             </div>
                         @endforeach
 
+                        <!-- Tombol untuk menambahkan tugas baru -->
                         <button type="button" class="btn btn-sm bg-danger-subtle" data-bs-toggle="modal"
                             data-bs-target="#addTaskModal" data-list="{{ $list->id }}">
+
+                            <!-- Isi tombol: Ikon plus dan teks "Tambah" -->
                             <span class="d-flex align-items-center justify-content-center">
-                                <i class="bi bi-plus fs-5"></i>
+                                <i class="bi bi-plus fs-5"></i> <!-- Ikon plus dari Bootstrap Icons -->
                                 Tambah
                             </span>
                         </button>
                     </div>
-
+                    <!-- Bagian footer dari kartu dengan layout fleksibel -->
                     <div class="card-footer d-flex justify-content-between align-items-center">
+
+                        <!-- Menampilkan jumlah tugas yang ada dalam list -->
                         <p class="card-text">{{ $list->tasks->count() }} Tugas</p>
                     </div>
                 </div>
             @endforeach
-
+            <!-- Cek apakah ada daftar yang tersedia, jika ada tampilkan tombol "Tambah" -->
             @if ($lists->count() !== 0)
+                <!-- Tombol untuk menambahkan daftar baru -->
                 <button type="button" class="btn bg-danger-subtle flex-shrink-0" style="width: 18rem; height: fit-content;"
                     data-bs-toggle="modal" data-bs-target="#addListModal">
+
+                    <!-- Isi tombol: Ikon plus dan teks "Tambah" -->
                     <span class="d-flex align-items-center justify-content-center">
-                        <i class="bi bi-plus fs-5"></i>
+                        <i class="bi bi-plus fs-5"></i> <!-- Ikon plus dari Bootstrap Icons -->
                         Tambah
                     </span>
                 </button>
