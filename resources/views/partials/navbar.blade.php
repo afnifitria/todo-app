@@ -17,7 +17,7 @@
         
     </div>
 
-    <!-- Custom CSS untuk Ukuran Gambar dan Animasi -->
+    
     <style>
         /* Menambahkan animasi dan efek hover pada gambar avatar */
         .avatar-image {
