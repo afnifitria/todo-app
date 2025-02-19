@@ -40,7 +40,7 @@
                     <button type="submit" class="btn btn-danger px-4 py-2 fw-bold rounded-pill">
                         <i class="bi bi-check-circle"></i> Simpan
                     </button>
-                    <!-- Tombol simpan perubahan tugas -->
+                    <!-- Tombol simpan perubahan  -->
                 </div>
             </form>
         </div>
