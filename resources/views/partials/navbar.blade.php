@@ -6,18 +6,59 @@
 
         <!-- Profil Pengguna -->
         <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-               id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <!-- Avatar Profil di sebelah kiri teks -->
-                <img src="{{ asset('img/anip.jpg') }}" alt="Profil" class="rounded-circle avatar-image me-2" width="60" height="60">
-                <!-- Nama pengguna di sebelah kanan gambar -->
-                <span class="fw-semibold">afni</span>
-            </a>
+            <!-- Link untuk membuka dropdown profil -->
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none"
+               id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="transition: 0.3s ease;">
+                
+                <!-- Avatar Profil -->
+                <div class="profile-avatar">
+                    <img src="{{ asset('img/anip.jpg') }}" alt="Profil" 
+                         class="rounded-circle" width="40" height="40">
+                </div>
+        
+                <!-- Nama Pengguna -->
+                <span class="fw-semibold ms-2">afni fitria dewi</span>
+            </a>    
+        
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                <li class="dropdown-item text-center">
+                    <!-- Avatar Besar -->
+                    <img src="{{ asset('img/anip.jpg') }}" alt="Profil" class="rounded-circle" width="60" height="60">
+                    <p class="fw-semibold mt-2 mb-0">afni fitria dewi</p>
+                    <p class="text-muted mb-0">Smkn 2 Subang</p>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Modal untuk Edit Profil -->
+        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">Edit Profil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="profileName" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="profileName" value="afni fitria dewi">
+                            </div>
+                            <div class="mb-3">
+                                <label for="profileImage" class="form-label">Foto Profil</label>
+                                <input type="file" class="form-control" id="profileImage">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         
     </div>
-
     
+
     <style>
         /* Menambahkan animasi dan efek hover pada gambar avatar */
         .avatar-image {
