@@ -159,4 +159,98 @@
             @endif
         </div>
     </div>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            min-height: 100vh;
+        }
+    
+        #content {
+            background: transparent;
+        }
+    /* Background dengan gradasi hijau modern */
+    body {
+        background: linear-gradient(to right, #f08489, #dd4149);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Mengatur tampilan container utama */
+    #content {
+        background: rgba(255, 255, 255, 0.2); /* Efek transparan */
+        backdrop-filter: blur(10px); /* Efek blur */
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 1200px;
+        overflow: hidden;
+    }
+
+    /* Styling untuk card */
+    .card {
+        border-radius: 12px;
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    /* Efek hover untuk card */
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    /* Tombol tambah dan hapus lebih elegan */
+    .btn {
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* Scrollbar lebih kecil */
+    .overflow-x-scroll::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .overflow-x-scroll::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    body {
+        background-image: url('img/wp.jpeg');
+        background-size: cover;
+        /* Agar gambar menutupi seluruh area */
+        background-position: center;
+        /* Pusatkan gambar */
+        background-repeat: no-repeat;
+        /* Jangan ulangi gambar */
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        /* Efek zoom saat hover */
+    }
+
+    .btn {
+        transition: background-color 0.3s, transform 0.2s;
+        /* Transisi untuk tombol */
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+        /* Efek zoom saat hover pada tombol */
+    }
+
+    .badge {
+        font-size: 0.9em;
+        /* Ukuran font badge */
+    }
+
+    </style>
+    
 @endsection

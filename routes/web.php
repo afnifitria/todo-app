@@ -22,3 +22,6 @@ Route::patch('/tasks/{task}/complete', [TaskController::class, 'complete'])->nam
 // Membuat route khusus untuk mengubah list tempat task berada
 // Menggunakan method PATCH untuk mengupdate task dengan list baru
 Route::patch('/tasks/{task}/change-list', [TaskController::class, 'changeList'])->name('tasks.changeList');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');

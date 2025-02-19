@@ -133,8 +133,9 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn" style="background-color: pink;">Edit</button>
             </div>
+            
             <!-- Tombol untuk menyimpan perubahan -->
         </form>
     </div>
